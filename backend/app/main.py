@@ -22,7 +22,7 @@ app = FastAPI(
 # CORS configuration
 # Strict CORS: Only allow specific origins in production
 cors_origins_str = os.getenv("CORS_ORIGINS", "")
-cors_origins = cors_origins_str.split(",") if cors_origins_str else ["http://localhost:5173", "http://localhost:3000"]
+cors_origins = cors_origins_str.split(",") if cors_origins_str else ["*"]
 
 # Add 'null' to allow file:// origins (for local HTML files) - Development only
 if os.getenv("ENVIRONMENT") == "development":

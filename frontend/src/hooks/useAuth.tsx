@@ -61,7 +61,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await axios.post(`${API_URL}/auth/signup`, formData);
       toast.success('Account created! Please login.');
     } catch (error: any) {
-      toast.error(error.response?.data?.detail || 'Signup failed');
+      const detail = error.response?.data?.detail;
+      if (Array.isArray(detail)) {
+        // Validation error - show first one
+        toast.error(detail[0]?.msg || 'Signup failed');
+      } else if (typeof detail === 'string') {
+        toast.error(detail);
+      } else {
+        toast.error('Signup failed');
+      }
       throw error;
     }
   };

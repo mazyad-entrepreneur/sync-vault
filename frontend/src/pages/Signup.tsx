@@ -62,11 +62,13 @@ const Signup = () => {
                         <input
                             type="password"
                             required
+                            minLength={8}
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
                             placeholder="••••••••"
                             value={formData.password}
                             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                         />
+                        <p className="text-xs text-gray-500 mt-1">At least 8 characters</p>
                     </div>
 
                     <button

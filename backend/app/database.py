@@ -8,16 +8,25 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./syncvault.db")
+DATABASE_URL = os.getenv("DATABASE_URL", "")
 
-# Convert postgresql:// to postgresql+psycopg:// for psycopg3 compatibility
-if DATABASE_URL.startswith("postgresql://"):
+# Ensure we have a valid DATABASE_URL - use SQLite as fallback
+if not DATABASE_URL or DATABASE_URL.strip() == "":
+    DATABASE_URL = "sqlite:///./syncvault.db"
+
+# Convert postgres:// or postgresql:// to postgresql+psycopg:// for psycopg3
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg://", 1)
+elif DATABASE_URL.startswith("postgresql://"):
     DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
+
+# Determine if SQLite (for connect_args)
+is_sqlite = DATABASE_URL.startswith("sqlite")
 
 # Create engine
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
+    connect_args={"check_same_thread": False} if is_sqlite else {}
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

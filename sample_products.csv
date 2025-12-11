@@ -1,0 +1,21 @@
+barcode,name,price,category,reorder_point,initial_quantity
+8901030531248,Coca Cola 500ml,40.00,Beverages,20,100
+8901262125049,Pepsi 500ml,40.00,Beverages,20,95
+8901262000536,Lays Chips 50g,20.00,Snacks,30,150
+8901063114357,Kurkure Masala Munch,10.00,Snacks,40,200
+8901063007819,Uncle Chips,15.00,Snacks,35,180
+8901071517014,Dairy Milk Chocolate,30.00,Chocolates,25,80
+8901063117105,KitKat,20.00,Chocolates,30,90
+8901725115104,Parle-G Biscuits,10.00,Biscuits,50,300
+8902102140085,Britannia Good Day,20.00,Biscuits,40,150
+8901020010784,Maggi Noodles,12.00,Instant Food,60,250
+8901491101219,Amul Milk 500ml,25.00,Dairy,15,50
+8901491505628,Amul Butter 100g,50.00,Dairy,10,40
+8901491503211,Amul Cheese Slice,120.00,Dairy,8,25
+8901020010920,Nescafe Coffee,150.00,Beverages,12,30
+8901063101999,Red Bull Energy Drink,125.00,Beverages,10,35
+8902102100119,Sunfeast Marie Light,15.00,Biscuits,45,200
+8901491109611,Frooti Mango Drink,20.00,Beverages,30,120
+8901020010722,Maggi Sauce 200g,35.00,Condiments,20,70
+8901063113077,Too Yumm  Chips,25.00,Snacks,25,100
+8902102130611,Britannia Milk Bikis,20.00,Biscuits,35,150

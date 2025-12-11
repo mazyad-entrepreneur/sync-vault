@@ -10,6 +10,10 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./syncvault.db")
 
+# Convert postgresql:// to postgresql+psycopg:// for psycopg3 compatibility
+if DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
+
 # Create engine
 engine = create_engine(
     DATABASE_URL,
